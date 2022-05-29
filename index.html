@@ -1,18 +1,14 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
     integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-
   <title>TODOS_LIST</title>
 </head>
-
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#task">TODOs</a>
@@ -20,7 +16,6 @@
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
@@ -38,7 +33,6 @@
   </nav>
   <div class="container my-4 px-10">
     <h2 class="text-center">ToDo-List</h2>
-
     <div class="form-group">
       <label for="exampleInputEmail1">Task</label>
       <input type="text" class="form-control" id="task" aria-describedby="emailHelp" required>
@@ -48,7 +42,6 @@
       <label for="exampleFormControlTextarea1">Add discription</label>
       <textarea class="form-control" id="discription" rows="3" required></textarea>
     </div>
-
     <button type="submit" class="btn btn-primary" id="addtask" onclick="additems()">ADD task </button>
     <button type="submit" class="btn btn-primary" id="clearlist" onclick="clearstoragelocal()">Clear List</button>
     <div class="items my-4 text-center">
@@ -69,13 +62,11 @@
             <td></td>
             <!-- <td><button class="btn btn-sm btn-primary"></button></td> -->
           </tr>
-
         </tbody>
       </table>
     </div>
   </div>
   <!-- Optional JavaScript; choose one of the two! -->
-
   <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -83,7 +74,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
     crossorigin="anonymous"></script>
-
   <!-- Option 2: Separate Popper and Bootstrap JS -->
   <!--
       <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -102,6 +92,7 @@
       console.log("called addtotable");
       str = "";
       arr1 = JSON.parse(localStorage.getItem("mylist"));
+      arr = JSON.parse(localStorage.getItem("mylist"));
       if (arr1 != null) {
         console.log("arr1", arr1);
         arr1.forEach(function (element, index) {
@@ -115,7 +106,6 @@
       }
       console.log(str.length);
     }
-
     addtotable();
     additems = () => {
       // to add  the items in local storage and the array
@@ -123,7 +113,6 @@
       arvalue = document.getElementById("discription").value;
       if ((arkey.length <= 0) || (arvalue.length <= 0)) {
         document.getElementById("alerts").click();
-
       }
       else {
         arr.push([arkey, arvalue]);
@@ -133,16 +122,12 @@
         document.getElementById("task").value = "";
         document.getElementById("discription").value = "";
         addtotable();
-
       }
     }
-
     update = () => {
       // to continue updating the table head and table body for refreshing 
-
       try {
         if ((localStorage.getItem("mylist") == null) || (arr1.length == 0)) {
-
           tablehead.innerHTML = "<h2>Please Add The Task First</h2>"
           tablerow.innerHTML = "";
         }
@@ -157,8 +142,6 @@
       catch (err) {
         console.log(err);
       }
-
-
     }
     deleter = (indexs) => {
       // deleting and updating the local storage and the array 
@@ -173,7 +156,6 @@
       console.log("erase");
       arr = [];
       localStorage.clear();
-
     }
     clearstoragelocal = () => {
       document.getElementById("alerts2").click();
@@ -184,7 +166,6 @@
     hidden>
     Launch demo modal
   </button>
-
   <!-- Modal -->
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
@@ -203,7 +184,6 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
-
         </div>
       </div>
     </div>
@@ -230,11 +210,9 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cofrmdelete()">OK</button>
-
         </div>
       </div>
     </div>
   </div>
 </body>
-
 </html>
